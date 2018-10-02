@@ -9,7 +9,7 @@ Example scripts demonstrating how to use the ATP Rest APIs for python
 Usage:
 python exampleStopStart.py start 
 
-Anything other that start parameter will stop the database
+Either start or stop the database
 """
 
 

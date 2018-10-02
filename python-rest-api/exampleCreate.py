@@ -27,11 +27,6 @@ try:
 		  "dataStorageSizeInTBs" : int(sys.argv[4])
 	}
 
-	#Example restoreTime
-	restoreTime = "2018-09-27T01:59:07.032Z"
-
-	#Example update body
-	update = { "cpuCoreCount" : 1 }
 	print(regions.dbPhoenixRegion)
 
 	exampleUpdate = atp.createAutonomousDatabase(config, body, regions.dbPhoenixRegion)
