@@ -43,14 +43,14 @@ The CLI is a small footprint tool that you can use by itself, or with the Consol
 **REGION** = located at the top of the OCI Console next to tenancy
 
 
-### **STEP 3**: Provide Oracle Object Storage with the OCI CLI public key that was created in oci setup config.
+### **STEP 3**: Provide Oracle Autonoumous with the OCI CLI public key that was created in oci setup config.
 
 Now that you have a private / public key combo , you must add it to OCI Console:
 
 - Add it to your OCI user settings:
   - Go to your Oracle Cloud Infrastructure console and select User Settings on the user dropdown in the top right corner.
   - Select Add Public Key and add the public key you copied from the command line interface.
-- You should now be able to access your object storage from the command line.
+- You should now be able to access your Autonomous instances from the command line.
 
 - If for whatever reason you still cannot connect, try running the following command and follow the prompts:
 
@@ -134,6 +134,6 @@ How to:
 
 - [OCI CLI Documentation](https://raw.githubusercontent.com/oracle/oci-cli/master/tests/output/inline_help_dump.txt)
 
-- [Object Storage Overview](https://docs.cloud.oracle.com/iaas/tools/oci-cli/latest/oci_cli_docs/cmdref/db/autonomous-database.html)
+- [Autonomous Database Overview](https://docs.cloud.oracle.com/iaas/tools/oci-cli/latest/oci_cli_docs/cmdref/db/autonomous-database.html)
 
 - [The Power of Oracle Cloud Infrastructure CLI](https://docs.us-phoenix-1.oraclecloud.com/Content/API/Concepts/cliconcepts.htm)
