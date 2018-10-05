@@ -17,7 +17,7 @@ Starts the database given the OCID
 config = from_file(file_location="./oci-config")
 
 try:
-	if len(sys.argv) > 1:
+	if len(sys.argv) == 2:
 		
 		exampleStart = atp.startAutonomousDatabase(config, sys.argv[1])
 

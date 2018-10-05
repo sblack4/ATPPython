@@ -36,51 +36,65 @@ python3 createAutonomousDatabase.py databaseName displayName password cpuCoreCou
 
 ```
 
-**Create Database**
+**Delete Database**
 
 ```
 
-python3 createAutonomousDatabase.py databaseName displayName password cpuCoreCount storageSizeInTBs
+python3 deleteAutonomousDatabase.py databaseOCID
 
 ```
 
-**Create Database**
+**Get Database**
 
 ```
 
-python3 createAutonomousDatabase.py databaseName displayName password cpuCoreCount storageSizeInTBs
+python3 getAutonomousDatabase.py databaseOCID
 
 ```
 
-**Create Database**
+**List Database**
 
 ```
 
-python3 createAutonomousDatabase.py databaseName displayName password cpuCoreCount storageSizeInTBs
+python3 listAutonomousDatabase.py
 
 ```
 
-**Create Database**
+**Start Database**
 
 ```
 
-python3 createAutonomousDatabase.py databaseName displayName password cpuCoreCount storageSizeInTBs
+python3 startAutonomousDatabase.py databaseOCID
 
 ```
 
-**Create Database**
+**Stop Database**
 
 ```
 
-python3 createAutonomousDatabase.py databaseName displayName password cpuCoreCount storageSizeInTBs
+python3 stopAutonomousDatabase.py databaseOCID
 
 ```
 
-**Create Database**
+**Update Database**
 
 ```
 
-python3 createAutonomousDatabase.py databaseName displayName password cpuCoreCount storageSizeInTBs
+python3 updateAutonomousDatabase.py databaseOCID cpuCoreCount storageSizeInTBs
 
 ```
 
+**Restore Database**
+
+```
+
+python3 restoreAutonomousDatabase.py databaseOCID timestamp
+
+```
+
+
+### **More Information**:
+
+- [Autonomous Database REST API Information](https://docs.cloud.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/)
+
+- [Database Python SDK](https://oracle-cloud-infrastructure-python-sdk.readthedocs.io/en/latest/api/database.html)

@@ -17,7 +17,7 @@ Retrieve a database
 config = from_file(file_location="./oci-config")
 
 try:
-	if len(sys.argv) <= 2:
+	if len(sys.argv) == 2:
 		
 		exampleGet = atp.getAutonomousDatabase(config, str(sys.argv[1]))
 

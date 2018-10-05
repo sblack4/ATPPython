@@ -17,7 +17,7 @@ Delete the database given the DB OCID
 config = from_file(file_location="./oci-config")
 
 try:
-	if len(sys.argv) <= 2:
+	if len(sys.argv) == 2:
 		
 		exampleDelete = atp.deleteAutonomousDatabase(config, sys.argv[1])
 
