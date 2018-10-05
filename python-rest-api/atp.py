@@ -1,6 +1,4 @@
 import requests
-import oci
-from oci.config import from_file
 from oci.signer import Signer
 
 import regions
@@ -28,13 +26,13 @@ Returns ID of the created ATP instance
 
 TODO: verify body params are correct
 """
-def createAutonomousDatabase(config, body, region):
+def createAutonomousDatabase(config, body):
 
 	#Set the auth
 	auth = atpSign(config)
 
 	#set the endpoint
-	endpoint = "https://" + region + "/20160918/autonomousDatabases/"
+	endpoint = "https://" + regions.autonomousDatabase[config["region"]] + "/20160918/autonomousDatabases/"
 
 	try:
 		response = requests.post(endpoint, json=body, auth=auth)
@@ -51,14 +49,14 @@ deleteAutonomousDatabase
 Deletes an ATP instance given the autonomousDatabaseId
 
 """
-def deleteAutonomousDatabase(config, region, autonomousDatabaseId):
+def deleteAutonomousDatabase(config, autonomousDatabaseId):
 
 
 	#Set the auth
 	auth = atpSign(config)
 
 	#set the endpoint
-	endpoint = "https://" + region + "/20160918/autonomousDatabases/" + autonomousDatabaseId
+	endpoint = "https://" + regions.autonomousDatabase[config["region"]] + "/20160918/autonomousDatabases/" + autonomousDatabaseId
 
 	try:
 		response = requests.delete(endpoint, auth=auth)
@@ -76,13 +74,13 @@ getAutonomousDatabase
 Retrieves an ATP instance given the autonomousDatabaseId
 
 """
-def getAutonomousDatabase(config, region, autonomousDatabaseId):
+def getAutonomousDatabase(config, autonomousDatabaseId):
 
 	#Set the auth
 	auth = atpSign(config)
 
 	#set the endpoint
-	endpoint = "https://" + region + "/20160918/autonomousDatabases/" + autonomousDatabaseId
+	endpoint = "https://" + regions.autonomousDatabase[config["region"]] + "/20160918/autonomousDatabases/" + autonomousDatabaseId
 
 	try:
 		response = requests.get(endpoint, auth=auth)
@@ -100,13 +98,13 @@ listAutonomousDatabase
 Lists all ATP instances
 
 """
-def listAutonomousDatabase(config, region):
+def listAutonomousDatabase(config):
 
 	#Set the auth
 	auth = atpSign(config)
 
 	#set the endpoint
-	endpoint = "https://" + region + "/20160918/autonomousDatabases?compartmentId=" + config['tenancy']
+	endpoint = "https://" + regions.autonomousDatabase[config["region"]] + "/20160918/autonomousDatabases?compartmentId=" + config['compartmentid']
 
 	try:
 		response = requests.get(endpoint, auth=auth)
@@ -126,7 +124,7 @@ Restores an ATP instance given the autonomousDatabaseId and time to restore
 TODO: verify time is in the past
 
 """
-def restoreAutonomousDatabase(config, region, autonomousDatabaseId, restoreTime):
+def restoreAutonomousDatabase(config, autonomousDatabaseId, restoreTime):
 
 	#Set the auth
 	auth = atpSign(config)
@@ -134,7 +132,7 @@ def restoreAutonomousDatabase(config, region, autonomousDatabaseId, restoreTime)
 	body= { "timestamp": restoreTime }
 
 	#set the endpoint
-	endpoint = "https://" + region + "/20160918/autonomousDatabases/" + autonomousDatabaseId + "/actions/restore"
+	endpoint = "https://" + regions.autonomousDatabase[config["region"]] + "/20160918/autonomousDatabases/" + autonomousDatabaseId + "/actions/restore"
 
 	try:
 		response = requests.post(endpoint, json=body, auth=auth)
@@ -152,13 +150,13 @@ startAutonomousDatabase
 Starts an ATP instance given the autonomousDatabaseId
 
 """
-def startAutonomousDatabase(config, region, autonomousDatabaseId):
+def startAutonomousDatabase(config, autonomousDatabaseId):
 
 	#Set the auth
 	auth = atpSign(config)
 
 	#set the endpoint
-	endpoint = "https://" + region + "/20160918/autonomousDatabases/" + autonomousDatabaseId + "/actions/start"
+	endpoint = "https://" + regions.autonomousDatabase[config["region"]] + "/20160918/autonomousDatabases/" + autonomousDatabaseId + "/actions/start"
 
 	try:
 		response = requests.post(endpoint, auth=auth)
@@ -175,13 +173,13 @@ stopAutonomousDatabase
 Stops an ATP instance given the autonomousDatabaseId
 
 """
-def stopAutonomousDatabase(config, region, autonomousDatabaseId):
+def stopAutonomousDatabase(config, autonomousDatabaseId):
 
 	#Set the auth
 	auth = atpSign(config)
 
 	#set the endpoint
-	endpoint = "https://" + region + "/20160918/autonomousDatabases/" + autonomousDatabaseId + "/actions/stop"
+	endpoint = "https://" + regions.autonomousDatabase[config["region"]] + "/20160918/autonomousDatabases/" + autonomousDatabaseId + "/actions/stop"
 
 	try:
 		response = requests.post(endpoint, auth=auth)
@@ -200,13 +198,13 @@ Updates an ATP instance given the autonomousDatabaseId, and the body params
 
 TODO: add check for body params are all correct
 """
-def updateAutonomousDatabase(config, body, region, autonomousDatabaseId):
+def updateAutonomousDatabase(config, body, autonomousDatabaseId):
 
 	#Set the auth
 	auth = atpSign(config)
 
 	#set the endpoint
-	endpoint = "https://" + region + "/20160918/autonomousDatabases/" + autonomousDatabaseId
+	endpoint = "https://" + regions.autonomousDatabase[config["region"]] + "/20160918/autonomousDatabases/" + autonomousDatabaseId
 
 	try:
 		response = requests.put(endpoint, json=body, auth=auth)
